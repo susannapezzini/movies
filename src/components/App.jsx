@@ -1,5 +1,6 @@
 import '../styles/App.scss';
 import Movie from './Movie.jsx';
+import List from './List.jsx';
 
 import React from "react";
 import {
@@ -42,7 +43,7 @@ export default function BasicExample() {
         */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            <MoviesList />
           </Route>
           <Route path="/movie">
             <ShowMovie />
@@ -56,10 +57,10 @@ export default function BasicExample() {
 // You can think of these components as "pages"
 // in your app.
 
-function Home() {
+function MoviesList() {
   return (
     <div>
-      <h2>Home</h2>
+      <List />
     </div>
   );
 }
