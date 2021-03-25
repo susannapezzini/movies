@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/List.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
+import MovieItem from './MovieItem.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
 
-const MOVIES_URL = 'http://www.omdbapi.com/?s=2021&apikey=d885f351'
-const API = 'd885f351'
+const MOVIES_URL = 'http://www.omdbapi.com/?s=2021&apikey=d885f351';
+const API = 'd885f351';
 
 
 class List extends React.Component {
@@ -28,7 +29,6 @@ class List extends React.Component {
       fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log('data', data.Search );
         if (data.Search) {
           this.setState({movies: data.Search});
         } else {
@@ -43,6 +43,7 @@ class List extends React.Component {
   render() {
     const { movies, filterText, error } = this.state;
     console.log(movies, movies.length);
+    // const classNames = selected ? 'card__shadow' : 'hidden'
     let movieList = '';  
     if (movies.length === 0) {
       movieList = 
@@ -55,15 +56,25 @@ class List extends React.Component {
       movieList = 
       <p className="error">{error}</p>
     } else {
-      movieList = 
-        <div className="movies">
-            <h1>Here is your search</h1>
-        </div>;
+      movieList = movies.map(movie => {
+        return (
+          <MovieItem
+          key={movie.id}
+          id={movie.id}
+          imageUrl={movie.Poster}
+          year={movie.Year}
+          title={movie.Title}
+          type={movie.Type}
+          />
+        )
+      });  
     }
     return (
     <div className="container">
       <input className="search" onChange={this.handleFilter} onKeyDown={this.handleSearch} placeholder="Search Movies..."/>
-      {movieList}
+      <div className="movies">
+        {movieList}
+      </div>
     </div>
     
     );
@@ -71,3 +82,16 @@ class List extends React.Component {
 }
 
 export default List;
+
+// let flatList = filteredFlats.map(flat => {
+//   return (
+//     <Flat
+//       onSelect={this.selectFlat}
+//       selected={selected === flat.id}
+//       key={flat.id}
+//       id={flat.id}
+//       imageUrl={flat.image_url}
+//       name={flat.name}
+//       price={flat.price} />
+//   )
+// });

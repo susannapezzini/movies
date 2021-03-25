@@ -58,6 +58,11 @@
   width: 100%; 
   display: flex;
   color:$white;
+  flex-direction: column;
+  @media screen and(min-width: 769px) {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
 }
 
 
