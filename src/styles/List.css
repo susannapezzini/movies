@@ -87,3 +87,21 @@ body {
     font-size: 2rem;
   }
 }
+
+.movies {
+  width: 100%;
+  display: flex;
+  color: #fff;
+}
+
+.error {
+  text-align: center;
+  color: #FF4040;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 769px) {
+  .error {
+    font-size: 2rem;
+  }
+}

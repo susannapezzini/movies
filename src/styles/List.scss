@@ -53,3 +53,19 @@
     font-size: 2rem;
   }
 }
+
+.movies {
+  width: 100%; 
+  display: flex;
+  color:$white;
+}
+
+
+.error {
+  text-align: center;
+  color: $red;
+  font-size: 1.5rem;
+  @media screen and (min-width: 769px) {
+    font-size: 2rem;
+  }
+}
