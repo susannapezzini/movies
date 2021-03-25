@@ -1,5 +1,6 @@
 @import './variables.scss';
 @import './settings.scss';
+@import './mixin.scss';
 @import './layout.scss';
 
 
@@ -21,4 +22,34 @@
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
+}
+
+.fa-lightbulb {
+  color: $yellow;
+  font-size: 4rem;
+}
+
+.empty {
+  margin: 0 auto;
+  color: $white;
+  text-align: center;
+  color: $lightgrey;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  @media screen and (min-width: 769px) {
+    font-size: 1.5rem;
+  }
+}
+
+.empty__claim {
+  font-weight: $bold;
+  font-size: 1.5rem;
+  color: $white;
+  margin-bottom: 0.25rem;
+  @media screen and (min-width: 769px) {
+    font-size: 2rem;
+  }
 }
