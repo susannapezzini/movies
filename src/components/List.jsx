@@ -29,6 +29,7 @@ class List extends React.Component {
       .then(data => {
         if (data.Search) {
           this.setState({movies: data.Search});
+          console.log(this.state.movies);
         } else {
           this.setState({movies: -1 });
           this.setState({error: 'Sorry we could not find what you were looking for, try again!'});
@@ -38,8 +39,9 @@ class List extends React.Component {
     }
   }
 
+
   render() {
-    const { movies, filterText, error } = this.state;
+    const { movies, filterText, error, liked } = this.state;
     let movieList = '';  
     if (movies.length === 0) {
       movieList = 
@@ -55,8 +57,8 @@ class List extends React.Component {
       movieList = movies.map(movie => {
         return (
           <MovieItem
-          key={movie.id}
-          id={movie.id}
+          key={movie.imdbID}
+          id={movie.imdbID}
           imageUrl={movie.Poster}
           year={movie.Year}
           title={movie.Title}
