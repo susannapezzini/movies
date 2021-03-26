@@ -1,14 +1,17 @@
-import '../styles/App.scss';
-import Movie from './Movie.jsx';
-import List from './List.jsx';
-
 import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useRouteMatch,
+  useParams
 } from "react-router-dom";
+
+import '../styles/App.scss';
+import Movie from './Movie.jsx';
+import List from './List.jsx';
+
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -19,30 +22,12 @@ import {
 // making sure things like the back button and bookmarks
 // work properly.
 
-export default function BasicExample() {
+export default function App() {
   return (
     <Router>
       <div>
-        {/* <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/movie">Movie</Link>
-          </li>
-        </ul>
-
-        <hr /> */}
-
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
         <Switch>
-          <Route exact path="/">
+          <Route path="/">
             <MoviesList />
           </Route>
           <Route path="/movie">

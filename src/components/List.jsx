@@ -4,7 +4,6 @@ import MovieItem from './MovieItem.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
 
-const MOVIES_URL = 'http://www.omdbapi.com/?s=2021&apikey=d885f351';
 const API = 'd885f351';
 
 
@@ -21,10 +20,9 @@ class List extends React.Component {
   }
 
   handleSearch = (event) => {
-    const { filterText, movies} = this.state;
     if (event.key === 'Enter') {
       // console.log(filterText);
-      const url = `http://www.omdbapi.com/?s=${this.state.filterText}&apikey=${API}`;
+      const url = `https://www.omdbapi.com/?s=${this.state.filterText}&apikey=${API}`;
       // console.log(url);
       fetch(url)
       .then(response => response.json())
@@ -82,16 +80,3 @@ class List extends React.Component {
 }
 
 export default List;
-
-// let flatList = filteredFlats.map(flat => {
-//   return (
-//     <Flat
-//       onSelect={this.selectFlat}
-//       selected={selected === flat.id}
-//       key={flat.id}
-//       id={flat.id}
-//       imageUrl={flat.image_url}
-//       name={flat.name}
-//       price={flat.price} />
-//   )
-// });
