@@ -40,8 +40,6 @@ class List extends React.Component {
 
   render() {
     const { movies, filterText, error } = this.state;
-    console.log(movies, movies.length);
-    // const classNames = selected ? 'card__shadow' : 'hidden'
     let movieList = '';  
     if (movies.length === 0) {
       movieList = 
